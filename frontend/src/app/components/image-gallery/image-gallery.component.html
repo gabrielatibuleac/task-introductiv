@@ -1,0 +1,35 @@
+<div class="gallery-container">
+    <header>
+      <h1>Prezentarea grupei ASII</h1>
+      <p>O comunitate deosebita</p>
+    </header>
+ 
+    <section class="scroll-section">
+      <h2 class="section-title">Mentorii</h2>
+      <div class="scroll-controls">
+        <button class="scroll-btn left" (click)="scrollLeft(natureContainer)">❮</button>
+        <div class="scroll-container" #natureContainer id="nature-container">
+          <div class="image-card" *ngFor="let image of natureImages" (click)="navigateToImageDetail(image)" 
+               [@cardAnimation]>
+            <img [src]="image.imageUrl" [alt]="image.title">
+            <div class="image-title">{{ image.title }}</div>
+          </div>
+        </div>
+        <button class="scroll-btn right" (click)="scrollRight(natureContainer)">❯</button>
+      </div>
+    </section>
+    <section class="scroll-section">
+      <h2 class="section-title">Bobocii</h2>
+      <div class="scroll-controls">
+        <button class="scroll-btn left" (click)="scrollLeft(urbanContainer)">❮</button>
+        <div class="scroll-container" #urbanContainer id="urban-container">
+          <div class="image-card" *ngFor="let image of urbanImages" (click)="navigateToImageDetail(image)"
+               [@cardAnimation]>
+            <img [src]="image.imageUrl" [alt]="image.title">
+            <div class="image-title">{{ image.title }}</div>
+          </div>
+        </div>
+        <button class="scroll-btn right" (click)="scrollRight(urbanContainer)">❯</button>
+      </div>
+    </section>
+  </div>

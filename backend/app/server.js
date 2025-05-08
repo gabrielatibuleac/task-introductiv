@@ -10,12 +10,16 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Conectare MongoDB
-mongoose.connect('mongodb+srv://admin:admin@cluster0.sd3rncw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(() => console.log("Conectat la MongoDB"))
+mongoose.connect('mongodb+srv://admin:admin@cluster0.sd3rncw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log("Conectat la MongoDB"))
   .catch(err => console.error(err));
 
 // Rute
-const itemsRoutes = require('./routes/CommentRoute.js');
-app.use('/api/items', itemsRoutes);
+const commentsRoutes = require('./routes/CommentRoute.js');
+const imagesRoutes = require('./routes/ImageRoute.js');
+
+app.use('/api/comments', commentsRoutes);
+app.use('/api/images', imagesRoutes);
 
 app.listen(PORT, () => {
     console.log(`Serverul rulează pe http://localhost:${PORT}`);
