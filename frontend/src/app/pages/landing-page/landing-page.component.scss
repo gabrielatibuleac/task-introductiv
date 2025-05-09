@@ -1,0 +1,120 @@
+.landing-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom,#FBE4D6);
+  color: white;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+.hero-section {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.animated-title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #ff0080, #ff8c00, #ff0080, #ff8c00);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 3s linear infinite;
+}
+@keyframes gradient {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.floating-orb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0.7;
+  filter: blur(1px);
+  animation: float 8s infinite ease-in-out;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-50px) scale(1.2); }
+}
+
+.explore-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: white;
+  border: 2px solid #ff6b6b;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+  
+  &:hover {
+    background: #ff6b6b;
+    letter-spacing: 1px;
+  }
+}
+.lego-animation {
+    position:absolute;
+  top:17px;
+  width: 150px;
+  height: auto;
+  margin-top: 2rem;
+  animation: 
+    bounce 0.8s ease-in-out infinite alternate,
+    rotate 3s linear infinite;
+
+
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0) rotate(0); }
+  100% { transform: translateY(-30px) rotate(5deg); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+.confetti-container {
+  position: absolute;
+  top: 20px; 
+  left: 0;
+  width: 200%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50; 
+  overflow:vissible;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff0;
+  opacity: 0;
+  animation: confetti-fall 4s ease-in-out forwards;
+}
+
+@keyframes confetti-fall {
+  0% { 
+    transform: translateY(0) rotate(0); 
+    opacity: 1;
+    top: 0;
+  }
+  100% { 
+    transform: translateY(200px) rotate(360deg); 
+    opacity: 0;
+    top: 100%;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="landing-container">
+  <div class="hero-section">
+    <div class="text-content">
+      <h1 class="animated-title">{{ animatedText }}</h1>
+    </div>  
+  </div>
+   <img [src]="logoPath" class="lego-animation" alt="ASII Logo">
+  <div class="confetti-container" *ngIf="showTeam">
+    <div class="confetti" *ngFor="let confetti of confettiParticles"></div>
+      <div 
+    *ngFor="let p of confettiParticles"
+    class="confetti"
+    [style.left]="p.left"
+    [style.animation-duration]="p.animationDuration"
+    [style.animation-delay]="p.animationDelay"
+    [style.background]="p.background"
+    [style.width]="p.size"
+    [style.height]="p.size"
+    [style.border-radius]="p.shape === 'circle' ? '50%' : '0'"
+  ></div>
+
+  </div>
+</div>
