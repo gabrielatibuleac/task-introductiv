@@ -1,0 +1,154 @@
+.mentor-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  
+  .header {
+    margin-bottom: 2rem;
+    
+    .back-navigation {
+      margin-bottom: 1.5rem;
+      
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        color: #3498db;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+        
+        &:hover {
+          color: #2980b9;
+          text-decoration: underline;
+        }
+      }
+    }
+    
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      
+      @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .profile-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
+        @media (min-width: 768px) {
+          width: 300px;
+        }
+      }
+      
+      .info {
+        flex: 1;
+        
+        h1 {
+          font-size: 2.5rem;
+          margin: 0 0 0.5rem 0;
+          color: #2c3e50;
+        }
+        
+        .collection-badge {
+          display: inline-block;
+          padding: 0.3rem 0.8rem;
+          background-color: #3498db;
+          color: white;
+          border-radius: 20px;
+          font-size: 0.9rem;
+          margin-bottom: 1rem;
+        }
+        
+        .description {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: #555;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  
+  .content {
+    .details-section {
+      h2 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e0e0e0;
+      }
+      
+      .detail-card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        
+        h3 {
+          font-size: 1.4rem;
+          color: #3498db;
+          margin-top: 1.5rem;
+          margin-bottom: 0.8rem;
+          
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        
+        p {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: #555;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  h2 {
+    font-size: 2rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+}

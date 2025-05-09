@@ -1,0 +1,62 @@
+<ng-container *ngIf="mentor; else notFoundTemplate">
+  <div class="mentor-detail">
+    <div class="header">
+      <div class="back-navigation">
+        <a [routerLink]="['']" class="back-link">← Înapoi la galerie</a>
+      </div>
+      
+      <div class="profile-container">
+        <img [src]="mentor.imageUrl" [alt]="mentor.title" class="profile-image">
+        <div class="info">
+          <h1>{{ mentor.title }}</h1>
+          <p class="collection-badge">{{ mentor.collection === 'mentori' ? 'Mentor' : 'Boboc' }}</p>
+          <p class="description">{{ mentor.description }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="details-section">
+        <h2>Informații suplimentare</h2>
+        
+        <div class="detail-card">
+          <ng-container *ngIf="mentor.collection === 'mentori'">
+            <!-- Conținut specific pentru mentori -->
+            <div class="mentor-specific-info">
+              <h3>Experiență</h3>
+              <p>Mentorul {{ mentor.title }} are o vastă experiență în domeniul IT și este dedicat dezvoltării studenților.</p>
+              
+              <h3>Specializare</h3>
+              <p>Dezvoltare web, programare orientată pe obiecte, inteligență artificială.</p>
+              
+              <h3>Contact</h3>
+              <p>Email: {{ getEmailForMentor(mentor) }}</p>
+            </div>
+          </ng-container>
+          
+          <ng-container *ngIf="mentor.collection === 'boboci'">
+            <!-- Conținut specific pentru boboci -->
+            <div class="boboc-specific-info">
+              <h3>Anul de studiu</h3>
+              <p>Anul I, Facultatea de Informatică</p>
+              
+              <h3>Interese</h3>
+              <p>Dezvoltare web, machine learning, jocuri video, programare competitivă.</p>
+              
+              <h3>Proiecte</h3>
+              <p>În curs de dezvoltare - urmărește activitatea ASII pentru a vedea proiectele bobocilor!</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #notFoundTemplate>
+  <div class="not-found">
+    <h2>Persoana căutată nu a fost găsită</h2>
+    <p>Ne pare rău, dar persoana pe care o căutați nu există în baza noastră de date.</p>
+    <a routerLink="/" class="back-link">← Înapoi la pagina principală</a>
+  </div>
+</ng-template>

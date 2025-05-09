@@ -2,12 +2,13 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Image } from '../../shared/models/image.model';
+import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 
 @Component({
   selector: 'app-image-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './image-gallery.component.html',
   styleUrls: ['./image-gallery.component.scss'],
   animations: [
@@ -47,13 +48,16 @@ export class ImageGalleryComponent implements OnInit {
     this.bobocImages = this.getBobocImages();
   }
 
-  // Make sure HTML uses this exact signature
-  navigateToImageDetail(image: Image, event: Event): void {
-    // Prevent event bubbling to avoid triggering parent click event
-    event.stopPropagation();
-    this.router.navigate(['/image', image._id]);
-  }
-
+navigateToImageDetail(image: Image, event: Event): void {
+  event.stopPropagation();
+  
+  // Determină ruta în funcție de colecție
+  const route = image.collection === 'mentori' 
+    ? `/mentori/${image._id}` 
+    : `/boboci/${image._id}`;
+  
+  this.router.navigate([route]);
+}
   setActiveMentorIndex(index: number): void {
     this.activeMentorIndex = index;
   }
@@ -67,7 +71,7 @@ export class ImageGalleryComponent implements OnInit {
   }
   
   // Simplified mock data with 4 images each
-  private getMentorImages(): Image[] {
+public getMentorImages(): Image[] {
     return [
       {
         _id: 'n1',
@@ -104,7 +108,7 @@ export class ImageGalleryComponent implements OnInit {
     ];
   }
   
-  private getBobocImages(): Image[] {
+  public getBobocImages(): Image[] {
     return [
       {
         _id: 'u1',
@@ -140,4 +144,5 @@ export class ImageGalleryComponent implements OnInit {
       }
     ];
   }
+  
 }

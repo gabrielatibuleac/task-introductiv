@@ -1,6 +1,7 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { MembersDetailsComponent } from './pages/members-details/members-details.component';
+import { MentorDetailComponent } from './pages/mentor-detail/mentor-detail.component';
 
 export const routes: Routes = [
   {
@@ -17,9 +18,13 @@ export const routes: Routes = [
     loadComponent: () => import('./components/image-detail/image-detail.component')
       .then(m => m.ImageDetailComponent) 
   },
-  {
-    path: 'member/:id', 
-    component: MembersDetailsComponent
-  },
+  { path: 'mentori/:id', component: MentorDetailComponent },
+  { path: 'boboci/:id', component: MentorDetailComponent },
   { path: '**', redirectTo: '' }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
