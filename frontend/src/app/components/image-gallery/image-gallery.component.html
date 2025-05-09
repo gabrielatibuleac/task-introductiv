@@ -3,33 +3,58 @@
       <h1>Prezentarea grupei ASII</h1>
       <p>O comunitate deosebita</p>
     </header>
- 
-    <section class="scroll-section">
+  
+    <div class="section-container">
       <h2 class="section-title">Mentorii</h2>
-      <div class="scroll-controls">
-        <button class="scroll-btn left" (click)="scrollLeft(natureContainer)">❮</button>
-        <div class="scroll-container" #natureContainer id="nature-container">
-          <div class="image-card" *ngFor="let image of natureImages" (click)="navigateToImageDetail(image)" 
-               [@cardAnimation]>
+      
+      <div class="modern-carousel">
+        <div class="carousel-wrapper" #mentorCarousel>
+          <div *ngFor="let image of mentorImages; let i = index" 
+               class="carousel-card" 
+               [class.active]="i === activeMentorIndex"
+               (click)="setActiveMentorIndex(i)">
             <img [src]="image.imageUrl" [alt]="image.title">
-            <div class="image-title">{{ image.title }}</div>
+            <div class="card-overlay">
+              <h3>{{ image.title }}</h3>
+              <p>{{ image.description }}</p>
+              <button class="view-details-btn" (click)="navigateToImageDetail(image, $event)">Vezi Detalii</button>
+            </div>
           </div>
         </div>
-        <button class="scroll-btn right" (click)="scrollRight(natureContainer)">❯</button>
+        
+        <div class="carousel-controls">
+          <div *ngFor="let image of mentorImages; let i = index" 
+               class="control-dot" 
+               [class.active]="i === activeMentorIndex"
+               (click)="setActiveMentorIndex(i)"></div>
+        </div>
       </div>
-    </section>
-    <section class="scroll-section">
+    </div>
+  
+    <div class="section-container">
       <h2 class="section-title">Bobocii</h2>
-      <div class="scroll-controls">
-        <button class="scroll-btn left" (click)="scrollLeft(urbanContainer)">❮</button>
-        <div class="scroll-container" #urbanContainer id="urban-container">
-          <div class="image-card" *ngFor="let image of urbanImages" (click)="navigateToImageDetail(image)"
-               [@cardAnimation]>
+      
+      <div class="modern-carousel">
+        <div class="carousel-wrapper" #bobocCarousel>
+          <div *ngFor="let image of bobocImages; let i = index" 
+               class="carousel-card" 
+               [class.active]="i === activeBobocIndex"
+               (click)="setActiveBobocIndex(i)">
             <img [src]="image.imageUrl" [alt]="image.title">
-            <div class="image-title">{{ image.title }}</div>
+            <div class="card-overlay">
+              <h3>{{ image.title }}</h3>
+              <p>{{ image.description }}</p>
+              <button class="view-details-btn" (click)="navigateToImageDetail(image, $event)">Vezi Detalii</button>
+            </div>
           </div>
         </div>
-        <button class="scroll-btn right" (click)="scrollRight(urbanContainer)">❯</button>
+        
+        <div class="carousel-controls">
+          <div *ngFor="let image of bobocImages; let i = index" 
+               class="control-dot" 
+               [class.active]="i === activeBobocIndex"
+               (click)="setActiveBobocIndex(i)"></div>
+        </div>
       </div>
-    </section>
+    </div>
   </div>

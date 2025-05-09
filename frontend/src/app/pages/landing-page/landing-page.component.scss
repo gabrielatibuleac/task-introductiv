@@ -1,12 +1,13 @@
 .landing-container {
   min-height: 100vh;
-  background: linear-gradient(to bottom,#FBE4D6);
+  background: linear-gradient(to bottom, #FBE4D6);
   color: white;
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
   position: relative;
 }
+
 .hero-section {
   height: 70vh;
   display: flex;
@@ -15,6 +16,7 @@
   align-items: center;
   position: relative;
 }
+
 .animated-title {
   font-size: 3rem;
   margin-bottom: 1.5rem;
@@ -25,6 +27,7 @@
   color: transparent;
   animation: gradient 3s linear infinite;
 }
+
 @keyframes gradient {
   0% { background-position: 0% center; }
   100% { background-position: 200% center; }
@@ -39,6 +42,7 @@
   filter: blur(1px);
   animation: float 8s infinite ease-in-out;
 }
+
 @keyframes float {
   0%, 100% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-50px) scale(1.2); }
@@ -55,23 +59,26 @@
   font-size: 1.1rem;
   transition: all 0.3s ease;
   margin-top: 2rem;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
   
   &:hover {
     background: #ff6b6b;
     letter-spacing: 1px;
   }
 }
+
 .lego-animation {
-    position:absolute;
-  top:17px;
+  position: absolute;
+  top: 17px;
   width: 150px;
   height: auto;
   margin-top: 2rem;
   animation: 
     bounce 0.8s ease-in-out infinite alternate,
     rotate 3s linear infinite;
-
-
   transform: translateZ(0);
   backface-visibility: hidden;
 }
@@ -86,6 +93,7 @@
   50% { transform: rotate(5deg); }
   100% { transform: rotate(-5deg); }
 }
+
 .confetti-container {
   position: absolute;
   top: 20px; 
@@ -94,7 +102,7 @@
   height: 100vh;
   pointer-events: none;
   z-index: 50; 
-  overflow:vissible;
+  overflow: visible;
 }
 
 .confetti {

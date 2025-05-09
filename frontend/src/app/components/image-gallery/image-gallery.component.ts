@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Image } from '../../shared/models/image.model';
-import { interval, Subscription } from 'rxjs';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 
 @Component({
   selector: 'app-image-gallery',
@@ -13,95 +12,131 @@ import { trigger, transition, style, animate } from '@angular/animations';
   styleUrls: ['./image-gallery.component.scss'],
   animations: [
     trigger('cardAnimation', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateX(50px)' }),
-        animate('400ms ease-out', style({ opacity: 1, transform: 'translateX(0)' }))
+      state('active', style({
+        transform: 'scale(1) translateX(0)',
+        opacity: 1,
+        zIndex: 10
+      })),
+      state('inactive', style({
+        transform: 'scale(0.8) translateX(0)',
+        opacity: 0.6
+      })),
+      transition('inactive => active', [
+        animate('0.4s ease-in-out')
       ]),
-      transition(':leave', [
-        animate('400ms ease-in', style({ opacity: 0, transform: 'translateX(-50px)' }))
+      transition('active => inactive', [
+        animate('0.4s ease-in-out')
       ])
     ])
   ]
 })
 export class ImageGalleryComponent implements OnInit {
-  natureImages: Image[] = [];
-  urbanImages: Image[] = [];
-  isLoading = false; 
+  mentorImages: Image[] = [];
+  bobocImages: Image[] = [];
+  isLoading = false;
+  activeMentorIndex = 1; 
+  activeBobocIndex = 1; 
+
+  @ViewChild('mentorCarousel') mentorCarousel!: ElementRef;
+  @ViewChild('bobocCarousel') bobocCarousel!: ElementRef;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.natureImages = this.mentorImages();
-    this.urbanImages = this.bobocImages();
+    this.mentorImages = this.getMentorImages();
+    this.bobocImages = this.getBobocImages();
   }
 
-  navigateToImageDetail(image: Image): void {
+  // Make sure HTML uses this exact signature
+  navigateToImageDetail(image: Image, event: Event): void {
+    // Prevent event bubbling to avoid triggering parent click event
+    event.stopPropagation();
     this.router.navigate(['/image', image._id]);
   }
 
-  scrollRight(collectionElement: HTMLElement): void {
-    collectionElement.scrollBy({ left: 300, behavior: 'smooth' });
+  setActiveMentorIndex(index: number): void {
+    this.activeMentorIndex = index;
   }
 
-  scrollLeft(collectionElement: HTMLElement): void {
-    collectionElement.scrollBy({ left: -300, behavior: 'smooth' });
+  setActiveBobocIndex(index: number): void {
+    this.activeBobocIndex = index;
   }
   
-  // Simplified mock data
-  private mentorImages(): Image[] {
+  getCardState(index: number, activeIndex: number): string {
+    return index === activeIndex ? 'active' : 'inactive';
+  }
+  
+  // Simplified mock data with 4 images each
+  private getMentorImages(): Image[] {
     return [
       {
         _id: 'n1',
         title: 'Mentor 1',
         imageUrl: 'assets/images/scoobert.jpeg',
-        collection: 'nature',
-        description: 'descriere 1',
+        collection: 'mentori',
+        description: 'descriere mentor 1',
         order: 1
       },
       {
         _id: 'n2',
         title: 'Mentor 2',
         imageUrl: 'assets/images/scoobert.jpeg',
-        collection: 'nature',
-        description: 'descriere 2',
+        collection: 'mentori',
+        description: 'descriere mentor 2',
         order: 2
       },
       {
         _id: 'n3',
         title: 'Mentor 3',
         imageUrl: 'assets/images/scoobert.jpeg',
-        collection: 'nature',
-        description: 'descriere 3',
+        collection: 'mentori',
+        description: 'descriere mentor 3',
         order: 3
+      },
+      {
+        _id: 'n4',
+        title: 'Mentor 4',
+        imageUrl: 'assets/images/scoobert.jpeg',
+        collection: 'mentori',
+        description: 'descriere mentor 4',
+        order: 4
       }
     ];
   }
   
-  private bobocImages(): Image[] {
+  private getBobocImages(): Image[] {
     return [
       {
         _id: 'u1',
         title: 'Boboc 1',
         imageUrl: 'assets/images/scoobert.jpeg',
-        collection: 'urban',
-        description: 'descriere 1',
+        collection: 'boboci',
+        description: 'descriere boboc 1',
         order: 1
       },
       {
         _id: 'u2',
         title: 'Boboc 2',
         imageUrl: 'assets/images/scoobert.jpeg',
-        collection: 'nature',
-        description: 'descriere 2',
+        collection: 'boboci',
+        description: 'descriere boboc 2',
         order: 2
       },
       {
         _id: 'u3',
         title: 'Boboc 3',
         imageUrl: 'assets/images/scoobert.jpeg',
-        collection: 'nature',
-        description: 'descriere 3',
+        collection: 'boboci',
+        description: 'descriere boboc 3',
         order: 3
+      },
+      {
+        _id: 'u4',
+        title: 'Boboc 4',
+        imageUrl: 'assets/images/scoobert.jpeg',
+        collection: 'boboci',
+        description: 'descriere boboc 4',
+        order: 4
       }
     ];
   }

@@ -1,9 +1,11 @@
-/* app/components/image-gallery/image-gallery.component.scss - Updated */
+/* Modern Gallery Container */
 .gallery-container {
     padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
     
     header {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       text-align: center;
       
       h1 {
@@ -11,104 +13,262 @@
         margin-bottom: 0.5rem;
         color: #2c3e50;
         font-weight: bold;
+        letter-spacing: -0.5px;
       }
       
       p {
         color: #7f8c8d;
         font-size: 1.2rem;
+        font-weight: 300;
       }
     }
   }
   
-  .scroll-section {
-    margin: 3rem 0;
-    border-radius: 12px;
-    padding: 1.5rem;
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  /* Section Container */
+  .section-container {
+    margin-bottom: 4rem;
   }
   
+  /* Section Title */
   .section-title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 1.8rem;
-    color: #34495e;
-    font-weight: bold;
+    color: #2c3e50;
+    font-weight: 600;
     text-align: center;
     position: relative;
+    padding-bottom: 10px;
     
     &::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 50px;
+      width: 80px;
       height: 3px;
-      background-color: #3498db;
+      background: linear-gradient(to right, #3498db, #2980b9);
+      border-radius: 3px;
     }
   }
   
-  .scroll-controls {
+  /* Modern Carousel */
+  .modern-carousel {
     position: relative;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 900px;
+    overflow: hidden;
+    padding: 2rem 0;
   }
   
-  .scroll-container {
+  .carousel-wrapper {
     display: flex;
     justify-content: center;
-    padding: 1.5rem 0;
-    gap: 2rem;
-    width: 100%;
-    overflow: visible;
+    align-items: center;
+    position: relative;
+    height: 350px;
   }
   
-  .scroll-btn {
+  .carousel-card {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #3498db;
-    color: white;
-    border: none;
+    width: 300px;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
-    z-index: 10;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
+    transform: scale(0.8) translateX(0);
+    opacity: 0.4;
     
-    &.left {
-      left: -20px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
     
-    &.right {
-      right: -20px;
+    .card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+      padding: 1.5rem;
+      color: white;
+      transform: translateY(70%);
+      transition: transform 0.4s ease;
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+      }
+      
+      .view-details-btn {
+        padding: 0.5rem 1rem;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        
+        &:hover {
+          background-color: #2980b9;
+        }
+      }
     }
     
-    &:hover {
-      background-color: #2980b9;
-      transform: translateY(-50%) scale(1.1);
+    &:hover .card-overlay {
+      transform: translateY(0);
+    }
+    
+    &:hover img {
+      transform: scale(1.1);
+    }
+    
+    &.active {
+      transform: scale(1) translateX(0);
+      opacity: 1;
+      z-index: 10;
+      
+      .card-overlay {
+        transform: translateY(0);
+      }
+    }
+    
+    &:nth-child(1):not(.active) {
+      transform: scale(0.75) translateX(-110%);
+    }
+    
+    &:nth-child(2):not(.active) {
+      transform: scale(0.85) translateX(-60%);
+      z-index: 1;
+    }
+    
+    &:nth-child(3):not(.active) {
+      transform: scale(0.85) translateX(60%);
+      z-index: 1;
+    }
+    
+    &:nth-child(4):not(.active) {
+      transform: scale(0.75) translateX(110%);
     }
   }
   
+  /* Carousel Controls */
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    
+    .control-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ddd;
+      border-radius: 50%;
+      margin: 0 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &.active {
+        width: 30px;
+        border-radius: 10px;
+        background-color: #3498db;
+      }
+      
+      &:hover:not(.active) {
+        background-color: #bbb;
+      }
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .carousel-card {
+      width: 240px;
+      height: 280px;
+    }
+    
+    .carousel-card .card-overlay h3 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .gallery-container header h1 {
+      font-size: 2rem;
+    }
+    
+    .carousel-wrapper {
+      height: 260px;
+    }
+    
+    .carousel-card {
+      width: 200px;
+      height: 240px;
+    }
+    
+    .carousel-card .card-overlay {
+      padding: 1rem;
+    }
+  }
+  
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Carousel Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+      &.active {
+        background-color: #3498db;
+        transform: scale(1.2);
+      }
+      
+      &:hover:not(.active) {
+        background-color: #bbb;
+      }
+    }
+  }
+  
+  /* Image Card Styling */
   .image-card {
-    min-width: 250px;
-    max-width: 250px;
-    height: 250px;
-    background-color: white;
+    width: 100%;
+    height: 100%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     position: relative;
-    cursor: pointer;
     transition: all 0.3s ease;
     
     &:hover {
-      transform: translateY(-10px) scale(1.05);
+      transform: scale(1.05);
       box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
     
@@ -136,7 +296,8 @@
     }
   }
   
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  /* Animation for card loading */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
