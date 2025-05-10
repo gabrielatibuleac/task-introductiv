@@ -75,36 +75,45 @@ public getMentorImages(): Image[] {
     return [
       {
         _id: 'n1',
-        title: 'Mentor 1',
-        imageUrl: 'assets/images/scoobert.jpeg',
+        title: 'Alexandru Ioan',
+        imageUrl: 'assets/images/alexandru-ioan.jpg',
         collection: 'mentori',
-        description: 'descriere mentor 1',
+        description: '...',
         order: 1
       },
       {
         _id: 'n2',
-        title: 'Mentor 2',
-        imageUrl: 'assets/images/scoobert.jpeg',
+        title: 'Alexandru Nechifor',
+        imageUrl: 'assets/images/alexandru-nechifor.jpg',
         collection: 'mentori',
-        description: 'descriere mentor 2',
+        description: '...',
         order: 2
       },
       {
         _id: 'n3',
-        title: 'Mentor 3',
-        imageUrl: 'assets/images/scoobert.jpeg',
+        title: 'Alin Motricala',
+        imageUrl: 'assets/images/alin-motricala.jpg',
         collection: 'mentori',
         description: 'descriere mentor 3',
         order: 3
       },
       {
         _id: 'n4',
-        title: 'Mentor 4',
-        imageUrl: 'assets/images/scoobert.jpeg',
+        title: 'Mihnea Pavel',
+        imageUrl: 'assets/images/mihnea-pavel.jpg',
         collection: 'mentori',
-        description: 'descriere mentor 4',
+        description: '..  ',
         order: 4
+      },
+         {
+        _id: 'n5',
+        title: 'Casandra Irimia',
+        imageUrl: 'assets/images/casandra-irimia.jpg',
+        collection: 'mentori',
+        description: '..  ',
+        order: 5
       }
+      
     ];
   }
   
@@ -112,23 +121,23 @@ public getMentorImages(): Image[] {
     return [
       {
         _id: 'u1',
-        title: 'Boboc 1',
-        imageUrl: 'assets/images/scoobert.jpeg',
+        title: 'Andrei Moisa',
+        imageUrl: 'assets/images/andrei-moisa.jpg',
         collection: 'boboci',
-        description: 'descriere boboc 1',
+        description: '',
         order: 1
       },
       {
         _id: 'u2',
-        title: 'Boboc 2',
-        imageUrl: 'assets/images/scoobert.jpeg',
+        title: 'Diana Rosu',
+        imageUrl: 'assets/images/diana-rosu.jpg',
         collection: 'boboci',
         description: 'descriere boboc 2',
         order: 2
       },
       {
         _id: 'u3',
-        title: 'Boboc 3',
+        title: 'Cătălin Rusu',
         imageUrl: 'assets/images/scoobert.jpeg',
         collection: 'boboci',
         description: 'descriere boboc 3',
@@ -136,10 +145,10 @@ public getMentorImages(): Image[] {
       },
       {
         _id: 'u4',
-        title: 'Boboc 4',
-        imageUrl: 'assets/images/scoobert.jpeg',
+        title: 'Gabriela Țibuleac',
+        imageUrl: 'assets/images/gabriela-tibuleac.jpg',
         collection: 'boboci',
-        description: 'descriere boboc 4',
+        description: '...',
         order: 4
       }
     ];

@@ -6,4 +6,5 @@ export interface Image {
     description?: string;
     order?: number;
     createdAt?: Date;
+    surpriseImageUrl?: string;
   }

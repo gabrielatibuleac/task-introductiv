@@ -1,4 +1,4 @@
-/* Modern Gallery Container */
+
 :host {
   display: block;
   position: absolute;
@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   min-height: 100vh;
-  background-color: #FBE4D6;
+background-color: #f5e8df;
 }
 
 
@@ -171,6 +171,9 @@
     &:nth-child(4):not(.active) {
       transform: scale(0.75) translateX(110%);
     }
+     &:nth-child(5):not(.active) {
+      transform: scale(0.75) translateX(110%);
+    }
   }
   
   /* Carousel Controls */
@@ -306,9 +309,28 @@
       font-weight: bold;
     }
   }
-  
-  /* Animation for card loading */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #ebcbcb;
+  color: #5d0202;
+    border: 2px solid #ecabab;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  position: absolute;
+  top: 60px; 
+  left: 40px;
+
+  
+  &:hover {
+    background-color: #e27070;
+     color: white;
+  }
+}

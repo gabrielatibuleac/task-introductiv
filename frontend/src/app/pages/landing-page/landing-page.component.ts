@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { DarkModeService } from '../../services/dark-mode.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,19 +12,37 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
   animatedText = '';
-  welcomeMessage = 'Haide să cunoaștem echipa!';
+  welcomeMessage = 'Cunoaște echipa!';
   showTeam = false;
   logoPath = 'assets/images/asii.png'; 
+  darkLogoPath = 'assets/images/asii-dark.png'; // Adaugă calea către logo-ul pentru dark mode
   confettiParticles: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+      public darkModeService: DarkModeService){
+    // Actualizează logo-ul când se schimbă modul
+    this.updateLogo();
+  }
 
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
+    this.updateLogo();
+  }
+  
   ngOnInit(): void {
     this.typeWriterEffect();
+    this.updateLogo();
+  }
+
+  // Metodă pentru actualizarea logo-ului în funcție de modul întunecat/luminos
+  updateLogo(): void {
+    this.logoPath = this.darkModeService.isDarkMode ? 
+      this.darkLogoPath : 'assets/images/asii.png';
   }
 
   typeWriterEffect(): void {
     this.generateConfetti(150);
+    setTimeout(() => this.showTeam = true, 300);
 
     let i = 0;
     const typing = () => {

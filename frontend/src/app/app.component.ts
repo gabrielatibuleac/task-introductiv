@@ -1,15 +1,34 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterOutlet } from '@angular/router';
+import { DarkModeService } from './services/dark-mode.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HttpClientModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'Image Gallery';
+export class AppComponent implements OnInit, OnDestroy {
+  private darkModeSubscription: Subscription | undefined;
+  
+  constructor(private darkModeService: DarkModeService) {}
+  
+  ngOnInit() {
+    // Folosim BehaviorSubject pentru a primi starea modului întunecat 
+    // în toate componentele aplicației
+    this.darkModeSubscription = this.darkModeService.darkModeChange.subscribe(isDarkMode => {
+      // Putem adăuga aici și alte modificări globale când se schimbă modul întunecat
+      console.log('Dark mode global status changed:', isDarkMode);
+    });
+  }
+  
+  ngOnDestroy() {
+    // Curățăm subscription-ul pentru a preveni memory leak
+    if (this.darkModeSubscription) {
+      this.darkModeSubscription.unsubscribe();
+    }
+  }
 }

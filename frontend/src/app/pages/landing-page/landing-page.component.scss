@@ -1,6 +1,6 @@
 .landing-container {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #FBE4D6);
+background-color: #f5e8df;
   color: white;
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -126,3 +126,14 @@
     top: 100%;
   }
 }
+ @media (max-width: 768px) {
+    .carousel-card {
+      width: 240px;
+      height: 280px;
+    }
+    
+    .carousel-card .card-overlay h3 {
+      font-size: 1.2rem;
+    }
+  }
+  
