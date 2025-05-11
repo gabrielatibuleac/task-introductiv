@@ -22,7 +22,7 @@ export class ImageDetailComponent implements OnInit {
       title: 'Mentor 1',
       imageUrl: 'assets/images/scoobert.jpeg',
       collection: 'nature',
-      description: 'mentor1',
+         description: '',
       order: 1
     },
     {
@@ -30,7 +30,7 @@ export class ImageDetailComponent implements OnInit {
       title: 'Mentor 2',
       imageUrl: 'assets/images/scoobert.jpeg',
       collection: 'nature',
-      description: 'mentor2',
+      description: '',
       order: 2
     },
     {
@@ -38,7 +38,7 @@ export class ImageDetailComponent implements OnInit {
       title: 'Mentor 3',
       imageUrl: 'assets/images/scoobert.jpeg',
       collection: 'nature',
-      description: 'mentor3',
+      description: '',
       order: 3
     },
     // Boboci
@@ -47,7 +47,7 @@ export class ImageDetailComponent implements OnInit {
       title: 'Boboc 1',
       imageUrl: 'assets/images/scoobert.jpeg',
       collection: 'urban',
-      description: 'boboc1',
+      description: '',
       order: 1
     },
     {
@@ -55,15 +55,14 @@ export class ImageDetailComponent implements OnInit {
       title: 'Boboc 2',
       imageUrl: 'assets/images/scoobert.jpeg',
       collection: 'urban',
-      description: 'boboc2',
+           description: '',
       order: 2
     },
     {
       _id: 'u3',
       title: 'Boboc 3',
       imageUrl: 'assets/images/scoobert.jpeg',
-      collection: 'urban',
-      description: 'boboc3.',
+      collection: 'urban',     description: '',
       order: 3
     }
   ];

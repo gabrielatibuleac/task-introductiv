@@ -78,7 +78,7 @@ public getMentorImages(): Image[] {
         title: 'Alexandru Ioan',
         imageUrl: 'assets/images/alexandru-ioan.jpg',
         collection: 'mentori',
-        description: '...',
+        description: 'Un pasionat al stilului de viață sănătos...',
         order: 1
       },
       {
@@ -86,7 +86,7 @@ public getMentorImages(): Image[] {
         title: 'Alexandru Nechifor',
         imageUrl: 'assets/images/alexandru-nechifor.jpg',
         collection: 'mentori',
-        description: '...',
+        description: 'Un bun lider...',
         order: 2
       },
       {
@@ -94,7 +94,7 @@ public getMentorImages(): Image[] {
         title: 'Alin Motricala',
         imageUrl: 'assets/images/alin-motricala.jpg',
         collection: 'mentori',
-        description: 'descriere mentor 3',
+        description: ' Maestru Strop al Angular-ului...',
         order: 3
       },
       {
@@ -102,7 +102,7 @@ public getMentorImages(): Image[] {
         title: 'Mihnea Pavel',
         imageUrl: 'assets/images/mihnea-pavel.jpg',
         collection: 'mentori',
-        description: '..  ',
+        description: 'Un PREMIAT...  ',
         order: 4
       },
          {
@@ -110,7 +110,7 @@ public getMentorImages(): Image[] {
         title: 'Casandra Irimia',
         imageUrl: 'assets/images/casandra-irimia.jpg',
         collection: 'mentori',
-        description: '..  ',
+        description: 'O fire deschisă..  ',
         order: 5
       }
       
@@ -124,7 +124,7 @@ public getMentorImages(): Image[] {
         title: 'Andrei Moisa',
         imageUrl: 'assets/images/andrei-moisa.jpg',
         collection: 'boboci',
-        description: '',
+        description: 'Elegant din cap până-n picioare...',
         order: 1
       },
       {
@@ -132,7 +132,7 @@ public getMentorImages(): Image[] {
         title: 'Diana Rosu',
         imageUrl: 'assets/images/diana-rosu.jpg',
         collection: 'boboci',
-        description: 'descriere boboc 2',
+        description: 'Adoră să...',
         order: 2
       },
       {
@@ -148,7 +148,7 @@ public getMentorImages(): Image[] {
         title: 'Gabriela Țibuleac',
         imageUrl: 'assets/images/gabriela-tibuleac.jpg',
         collection: 'boboci',
-        description: '...',
+        description: 'O persoană deschisă....',
         order: 4
       }
     ];

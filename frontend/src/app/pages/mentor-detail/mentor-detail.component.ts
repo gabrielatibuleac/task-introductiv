@@ -36,7 +36,7 @@ export class MentorDetailComponent implements OnInit {
       title: 'Alexandru Ioan',
       imageUrl: 'assets/images/alexandru-ioan.jpg',
       collection: 'mentori',
-      description: '',
+     description: "🏋️‍♂️ 🥇 💻\nUn pasionat al stilului de viață sănătos, ce îmbină sportul cu tehnologia, dezvoltând aplicații în Next.js.\nEste nelipsit din sala de fitness și adoră dansurile populare românești.\nUn echilibru perfect între disciplină și tradiție.",
       order: 1,
       surpriseImageUrl: 'assets/images/surprise-image.jpg'
     },
@@ -45,7 +45,7 @@ export class MentorDetailComponent implements OnInit {
       title: 'Alexandru Nechifor',
       imageUrl: 'assets/images/alexandru-nechifor.jpg',
       collection: 'mentori',
-      description: '',
+      description:'👨‍💻 🕊️ 🤖\nUn bun lider, cu un simț al umorului inconfundabil și o prezență mereu energică. E sufletul petrecerilor, face haz de necaz și știe să aducă zâmbete în orice context. Îi place să îmbine distracția cu responsabilitatea, fiind un mentor dedicat și un prieten de nădejde.\nSpaima porumbeilor.',
       order: 1,
       surpriseImageUrl: 'assets/images/cat-glass.jpg'
     },
@@ -54,7 +54,7 @@ export class MentorDetailComponent implements OnInit {
       title: 'Alin Motricala',
       imageUrl: 'assets/images/alin-motricala.jpg',
       collection: 'mentori',
-      description: '',
+      description: '🖥️ 🔥 💥\nUn mentor, un prieten, un om deosebit mereu gata să te ajute să găsești soluții clare. Are răbdare și plăcerea sinceră de a-i ghida pe ceilalți. Cu el, orice problemă devine o lecție.',
       order: 1,
       surpriseImageUrl: 'assets/images/cata.jpg'
     },
@@ -63,7 +63,7 @@ export class MentorDetailComponent implements OnInit {
       title: 'Mihnea Pavel',
       imageUrl: 'assets/images/mihnea-pavel.jpg',
       collection: 'mentori',
-      description: '',
+      description: '🍾 🍾 🍾\nUn PREMIAT cumsecade. Știe să aprecieze un gust rafinat și să aducă eleganță în orice ocazie. Sponsorul bunului gust și al momentelor de relaxare.',
       order: 1,
       surpriseImageUrl: 'assets/images/cat-bottle.jpg'
     },
@@ -72,7 +72,7 @@ export class MentorDetailComponent implements OnInit {
       title: 'Casandra Irimia',
       imageUrl: 'assets/images/casandra-irimia.jpg',
       collection: 'mentori',
-      description: '',
+      description: '🌸 🌼 🌷\nO fire deschisă, caldă și blândă, care inspiră încredere din primul contact. Îți vorbește cu sinceritate și îți ascultă cu răbdare gândurile. E genul de persoană cu care ai sta la povești ore în șir.',
       order: 1,
       surpriseImageUrl: 'assets/images/catc.jpg'
     },

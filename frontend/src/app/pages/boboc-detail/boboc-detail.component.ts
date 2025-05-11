@@ -32,7 +32,7 @@ export class BobocDetailComponent implements OnInit {
       title: 'Andrei Moisa',
       imageUrl: 'assets/images/andrei-moisa.jpg',
       collection: 'boboci',
-      description: '',
+      description: '🏅 🏅 🏅 \nElegant din cap până-n picioare, își poartă umorul cu o notă ușor „stricată” care cucerește. Are o prezență aparte, mereu atent la detalii. Glumele sale sunt ca vinul vechi: nu pentru toată lumea, dar bune pentru cunoscători.',
       order: 1,
        surpriseImageUrl: 'assets/images/andrei.jpg'
     },
@@ -41,7 +41,7 @@ export class BobocDetailComponent implements OnInit {
       title: 'Diana Roșu',
       imageUrl: 'assets/images/diana-rosu.jpg',
       collection: 'boboci',
-      description: '',
+      description: '🌼 💐 🏵️\nAdoră să descopere locuri noi și să se lase purtată de drum. Este liberă, curioasă și spontană. Unde e o plimbare, e și ea.',
       order: 2,
          surpriseImageUrl: 'assets/images/diana.jpg'
     },
@@ -59,7 +59,7 @@ export class BobocDetailComponent implements OnInit {
       title: 'Gabriela Țibuleac',
       imageUrl: 'assets/images/gabriela-tibuleac.jpg',
       collection: 'boboci',
-      description: '',
+      description: 'O persoană deschisă la oportunități noi, cu o timiditate destul de mare care se topește în timp. Iubitoare de pisici puțin spus.\n „I’m just a girl”',
       order: 4,
          surpriseImageUrl: 'assets/images/gabi.jpg'
     },

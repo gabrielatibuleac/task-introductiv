@@ -180,7 +180,9 @@
 .animate-switch {
   animation: imageSwitch 0.5s ease-in-out;
 }
-
+  .description {
+  white-space: pre-line;
+}
 .not-found {
   text-align: center;
   padding: 4rem 2rem;
