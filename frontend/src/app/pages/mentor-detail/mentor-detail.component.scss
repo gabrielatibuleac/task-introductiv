@@ -24,16 +24,17 @@
         display: inline-flex;
         align-items: center;
         padding: 0.75rem 1.5rem;
-        background-color: #ebcbcb;
-       color: white;
-        border: 2px solid #ecabab;
+        background-color:#ffffff;
+       color: #3498db;
+        border: 2px solid#3498db;
         border-radius: 50px;
         text-decoration: none;
         font-weight: 500;
         transition: color 0.2s;
         
         &:hover {
-          color: #1f6da0;
+          color: #ffffff;
+          background-color:#3498db;
           text-decoration: underline;
         }
       }
@@ -188,7 +189,7 @@
   
   h2 {
     font-size: 2rem;
-    color: #e74c3c;
+    color: #72b5cf;
     margin-bottom: 1rem;
   }
   
@@ -197,49 +198,5 @@
     color: #555;
     margin-bottom: 2rem;
   }
-  
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    background-color: #3498db;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.2s;
-    
-    &:hover {
-      background-color: #2980b9;
-    }
-  }
+
 }
- @media (max-width: 768px) {
-    .carousel-card {
-      width: 240px;
-      height: 280px;
-    }
-    
-    .carousel-card .card-overlay h3 {
-      font-size: 1.2rem;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .gallery-container header h1 {
-      font-size: 2rem;
-    }
-    
-    .carousel-wrapper {
-      height: 260px;
-    }
-    
-    .carousel-card {
-      width: 200px;
-      height: 240px;
-    }
-    
-    .carousel-card .card-overlay {
-      padding: 1rem;
-    }
-  }
