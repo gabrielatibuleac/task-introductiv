@@ -24,17 +24,17 @@
         display: inline-flex;
         align-items: center;
         padding: 0.75rem 1.5rem;
-        background-color:#ffffff;
-       color: #3498db;
-        border: 2px solid#3498db;
+        background-color: #ffffff;
+        color: #3498db;
+        border: 2px solid #3498db;
         border-radius: 50px;
         text-decoration: none;
         font-weight: 500;
-        transition: color 0.2s;
+        transition: all 0.3s ease;
         
         &:hover {
           color: #ffffff;
-          background-color:#3498db;
+          background-color: #3498db;
           text-decoration: underline;
         }
       }
@@ -180,7 +180,7 @@
 .animate-switch {
   animation: imageSwitch 0.5s ease-in-out;
 }
-  .description {
+.description {
   white-space: pre-line;
 }
 .not-found {
@@ -200,5 +200,93 @@
     color: #555;
     margin-bottom: 2rem;
   }
+}
 
+:host-context(.dark-mode) {
+  background-color: #1e272e;
+  
+  .mentor-detail {
+    color: #f5f6fa;
+    
+    .header {
+      .back-navigation {
+        .back-link {
+          background-color: #2d3436;
+          color: #74b9ff;
+          border-color: #74b9ff;
+          
+          &:hover {
+            background-color: #74b9ff;
+            color: #1e272e;
+          }
+        }
+      }
+      
+      .profile-container {
+        background-color: #2d3436;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        
+        .info {
+          h1 {
+            color: #f5f6fa;
+          }
+          
+          .collection-badge {
+            background-color: #0984e3;
+          }
+          
+          .description {
+            color: #dcdde1;
+          }
+        }
+      }
+    }
+    
+    .content {
+      .details-section {
+        h2 {
+          color: #f5f6fa;
+          border-bottom-color: #3d3d3d;
+        }
+        
+        .detail-card {
+          background-color: #2d3436;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          
+          h3 {
+            color: #74b9ff;
+          }
+          
+          p {
+            color: #dcdde1;
+          }
+        }
+      }
+    }
+    
+    .secret-button {
+      background-color: #0984e3;
+      color: #f5f6fa;
+    }
+  }
+  
+  .not-found {
+    h2 {
+      color: #74b9ff;
+    }
+    
+    p {
+      color: #dcdde1;
+    }
+    
+    .back-link {
+      color: #74b9ff;
+      border-color: #74b9ff;
+      
+      &:hover {
+        background-color: #74b9ff;
+        color: #1e272e;
+      }
+    }
+  }
 }

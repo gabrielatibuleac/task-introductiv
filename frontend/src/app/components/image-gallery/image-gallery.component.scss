@@ -340,6 +340,111 @@ background-color: #f5e8df;
     white-space: normal;
   }
 }
+/* Add these styles to specific component SCSS files */
 
+/* For landing-page.component.scss */
+:host-context(.dark-mode) {
+  .landing-container {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .animated-title {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .explore-btn {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--card-background);
+    }
+  }
+  
+  .lego-animation {
+    filter: brightness(0.85);
+  }
+}
+
+/* For image-gallery.component.scss */
+:host-context(.dark-mode) {
+  background-color: var(--background-color);
+  
+  .gallery-container {
+    background-color: var(--background-color);
+  }
+  
+  .section-title {
+    color: var(--text-color);
+  }
+  
+  .carousel-card {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    
+    .card-overlay {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    }
+  }
+  
+  .control-dot {
+    background-color: var(--border-color);
+    
+    &.active {
+      background-color: var(--primary-color);
+    }
+  }
+  
+  .back-link {
+    background-color: var(--card-background);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+/* For mentor-detail.component.scss and boboc-detail.component.scss */
+:host-context(.dark-mode) {
+  background-color: var(--background-color);
+  
+  .profile-container {
+    background-color: var(--card-background);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .detail-card {
+    background-color: var(--card-background);
+  }
+  
+  h1, h2, h3 {
+    color: var(--text-color);
+  }
+  
+  .description, p {
+    color: var(--text-color);
+  }
+  
+  .back-link {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--card-background);
+    }
+  }
+  
+  .secret-button {
+    background-color: var(--primary-color);
+    opacity: 0.3;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
 
 

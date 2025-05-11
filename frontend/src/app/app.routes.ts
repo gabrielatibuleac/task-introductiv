@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+// Import from the component file directly
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { MentorDetailComponent } from './pages/mentor-detail/mentor-detail.component';
 import { BobocDetailComponent } from './pages/boboc-detail/boboc-detail.component';
 import { DarkModeService } from './services/dark-mode.service';
+
 export const routes: Routes = [
   {
     path: '',

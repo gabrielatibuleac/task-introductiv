@@ -1,0 +1,84 @@
+/* Dark Mode Variables */
+:root {
+    --background-color: #f5e8df;
+    --text-color: #2c3e50;
+    --card-background: #ffffff;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border-color: #e0e0e0;
+    --primary-color: #3498db;
+    --secondary-color: #f39c12;
+    --accent-color: #e74c3c;
+    --hover-color: #2980b9;
+    --link-color: #3498db;
+    --badge-color: #3498db;
+    --badge-text: white;
+    
+    /* Transition for smooth dark mode toggle */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Dark Mode Class */
+  .dark-mode {
+    --background-color: #1e272e;
+    --text-color: #f5f6fa;
+    --card-background: #2d3436;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --border-color: #3d3d3d;
+    --primary-color: #74b9ff;
+    --secondary-color: #ffeaa7;
+    --accent-color: #ff7675;
+    --hover-color: #0984e3;
+    --link-color: #74b9ff;
+    --badge-color: #0984e3;
+    --badge-text: #f5f6fa;
+    
+    /* Apply to body and base elements */
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+    
+    /* Update gallery background */
+    .gallery-container,
+    .image-detail,
+    .mentor-detail,
+    app-image-gallery:host,
+    app-mentor-detail:host,
+    app-boboc-detail:host {
+      background-color: var(--background-color);
+    }
+    
+    /* Update cards and containers */
+    .profile-container,
+    .detail-card,
+    .carousel-card,
+    .image-card {
+      background-color: var(--card-background);
+      box-shadow: var(--card-shadow);
+      color: var(--text-color);
+    }
+    
+    /* Update headings */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-color);
+    }
+    
+    /* Update buttons and links */
+    .back-link,
+    .explore-btn {
+      background-color: transparent;
+      color: var(--link-color);
+      border-color: var(--link-color);
+      
+      &:hover {
+        background-color: var(--link-color);
+        color: var(--card-background);
+      }
+    }
+    
+    /* Update badges */
+    .collection-badge {
+      background-color: var(--badge-color);
+      color: var(--badge-text);
+    }
+  }

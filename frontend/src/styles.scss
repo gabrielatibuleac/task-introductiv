@@ -1,19 +1,92 @@
+/* Additional Dark Mode styles to add to your styles.scss file */
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+/* Make sure dark mode applies to all page elements */
+.dark-mode {
+  /* Target all root and body elements */
+  html, body, app-root, .app-container {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Target landing page specific elements */
+  .landing-container {
+    background-color: var(--background-color) !important;
+  }
+  
+  .animated-title {
+    color: var(--text-color) !important;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color), var(--secondary-color)) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+  }
+  
+  /* Target mentor/boboc detail pages */
+  .mentor-detail, .not-found, app-mentor-detail:host, app-boboc-detail:host {
+    background-color: var(--background-color) !important;
+  }
+  
+  .profile-container {
+    background-color: var(--card-background) !important;
+  }
+  
+  /* Target image gallery elements */
+  .gallery-container {
+    background-color: var(--background-color) !important;
+  }
+  
+  .section-title, .section-title::after {
+    color: var(--text-color) !important;
+  }
+  
+  .carousel-card {
+    background-color: var(--card-background) !important;
+  }
+  
+  .card-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)) !important;
+  }
+  
+  /* Target navigation elements */
+  .back-link, .explore-btn {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    
+    &:hover {
+      background-color: var(--primary-color) !important;
+      color: var(--card-background) !important;
+    }
+  }
+  
+  /* Handle all other possible elements */
+  .detail-card {
+    background-color: var(--card-background) !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    color: var(--text-color);
+  }
+  
+  /* Target any remaining content sections */
+  .content, .details-section, .info, .header, .text-content {
+    color: var(--text-color);
+  }
+  
+  /* Style for buttons and interactive elements */
+  button:not(.dark-mode-toggle) {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    border-color: var(--primary-color);
+    
+    &:hover {
+      background-color: var(--hover-color);
+    }
+  }
+  
+  /* Enforce dark mode for any embedded content */
+  iframe, embed, object {
+    filter: invert(0.8) hue-rotate(180deg);
+  }
+}
 
-html {
-  @include mat.theme((
-    color: (
-      theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
-}/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Add !important to all critical dark mode styles to ensure they override any component-specific styles */
