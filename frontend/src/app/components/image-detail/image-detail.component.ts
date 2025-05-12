@@ -2,12 +2,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Image } from '../../shared/models/image.model';
-import { GalleryCommentsComponent } from '../gallery-comments/gallery-comments.component';
 
 @Component({
   selector: 'app-image-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, GalleryCommentsComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './image-detail.component.html',
   styleUrls: ['./image-detail.component.scss']
 })

@@ -1,0 +1,26 @@
+<div class="gallery-comments-section">
+    <h2 class="section-title">Comentarii recente</h2>
+    
+    <div *ngIf="isLoading" class="loading-comments">
+      <p>Se încarcă comentariile...</p>
+    </div>
+    
+    <div *ngIf="!isLoading && comments.length === 0" class="no-comments">
+      <p>Nu există comentarii încă. Vizitează paginile de detalii ale mentorilor și bobocilor pentru a adăuga primul comentariu!</p>
+    </div>
+    
+    <div *ngIf="!isLoading && comments.length > 0" class="comments-grid">
+      <div *ngFor="let comment of comments" class="comment-card">
+        <div class="comment-header">
+          <h3 class="comment-author">{{ comment.userName }}</h3>
+          <span class="comment-date">{{ comment.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+        </div>
+        <div class="comment-content">
+          <p>{{ comment.content }}</p>
+        </div>
+        <div class="comment-footer">
+          <span class="comment-target">La: {{ getTargetName(comment.itemId) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>

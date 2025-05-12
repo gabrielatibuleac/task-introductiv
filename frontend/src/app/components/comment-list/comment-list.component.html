@@ -1,0 +1,23 @@
+<div class="comments-container">
+    <h3>Comentarii</h3>
+    
+    <div *ngIf="isLoading" class="loading">
+      <p>Se încarcă comentariile...</p>
+    </div>
+    
+    <div *ngIf="!isLoading && comments.length === 0" class="no-comments">
+      <p>Nu există comentarii încă. Fii primul care lasă un comentariu!</p>
+    </div>
+    
+    <div *ngIf="!isLoading && comments.length > 0" class="comments-list">
+      <div *ngFor="let comment of comments" class="comment-item">
+        <div class="comment-header">
+          <span class="comment-author">{{ comment.userName }}</span>
+          <span class="comment-date">{{ comment.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+        </div>
+        <div class="comment-content">
+          {{ comment.content }}
+        </div>
+      </div>
+    </div>
+  </div>

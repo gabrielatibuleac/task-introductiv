@@ -340,9 +340,6 @@ background-color: #f5e8df;
     white-space: normal;
   }
 }
-/* Add these styles to specific component SCSS files */
-
-/* For landing-page.component.scss */
 :host-context(.dark-mode) {
   .landing-container {
     background-color: var(--background-color);

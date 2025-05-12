@@ -7,7 +7,11 @@
       
     </div>  
   </div>
-  <img [src]="logoPath" class="lego-animation" alt="ASII Logo">
+  <img appThemeImage 
+     lightSrc="assets/images/asii.png" 
+     darkSrc="assets/images/asii-dark.png" 
+     class="lego-animation" 
+     alt="ASII Logo"> 
   <div class="confetti-container" *ngIf="showTeam">
     <div 
       *ngFor="let p of confettiParticles"

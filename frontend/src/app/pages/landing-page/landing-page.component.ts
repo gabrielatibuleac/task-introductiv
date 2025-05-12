@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { DarkModeService } from '../../services/dark-mode.service';
-
+import { ThemeImageDirective } from './theme-image.directive';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ThemeImageDirective],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
