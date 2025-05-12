@@ -139,9 +139,9 @@ export class ImageGalleryComponent implements OnInit {
       {
         _id: 'u3',
         title: 'Cătălin Rusu',
-        imageUrl: 'assets/images/scoobert.jpeg',
+        imageUrl: 'assets/images/catalin-rusu.jpg',
         collection: 'boboci',
-        description: 'descriere boboc 3',
+        description: 'Caracterizat prin perspicacitate...',
         order: 3
       },
       {

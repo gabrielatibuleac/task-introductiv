@@ -105,19 +105,33 @@ export class CommentListComponent implements OnInit {
   constructor(private commentService: CommentService) { }
 
   ngOnInit(): void {
+    console.log('CommentList initialized, itemId:', this.itemId);
     this.loadComments();
   }
-
+  
   loadComments(): void {
+    console.log('Starting to load comments for itemId:', this.itemId);
+    
     if (!this.itemId) {
+      console.warn('No itemId provided, skipping comment loading');
       this.isLoading = false;
       return;
     }
     
     this.commentService.getCommentsByItemId(this.itemId)
-      .subscribe(comments => {
-        this.comments = comments;
-        this.isLoading = false;
+      .subscribe({
+        next: (comments) => {
+          console.log('Successfully loaded comments:', comments);
+          this.comments = comments;
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error('Error loading comments:', error);
+          this.isLoading = false; // Make sure to set isLoading to false even on error
+        },
+        complete: () => {
+          console.log('Comment loading observable completed');
+        }
       });
   }
 

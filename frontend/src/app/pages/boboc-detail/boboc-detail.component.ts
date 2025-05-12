@@ -55,9 +55,9 @@ export class BobocDetailComponent implements OnInit {
         title: 'Cătălin Rusu',
         imageUrl: 'assets/images/catalin-rusu.jpg',
         collection: 'boboci',
-        description: '',
+        description: 'O persoană activă și curioasă, pasionată de sporturi, rezolvarea puzzle-urilor și explorarea de experiențe noi. Îmi place să fiu mereu provocat, fie că este vorba de activități fizice sau de probleme logice, iar dorința de a învăța și a descoperi lucruri noi mă motivează constant.',
         order: 3,
-     surpriseImageUrl: 'assets/images/catalin.jpg'
+     surpriseImageUrl: 'assets/images/scoobert.jpeg'
       },
       {
         _id: 'u4',

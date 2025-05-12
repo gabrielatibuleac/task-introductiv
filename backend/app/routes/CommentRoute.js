@@ -24,17 +24,6 @@ router.get('/item/:itemId', async (req, res) => {
     }
 });
 
-// Get comments for a specific item
-router.get('/item/:itemId', async (req, res) => {
-    try {
-        const comments = await Comment.find({ itemId: req.params.itemId })
-                                    .sort({ createdAt: -1 }); 
-        res.json(comments);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-});
-
 // Add a new comment
 router.post('/', async (req, res) => {
     try {
