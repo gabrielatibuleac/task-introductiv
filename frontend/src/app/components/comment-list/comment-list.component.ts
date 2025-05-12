@@ -121,7 +121,6 @@ export class CommentListComponent implements OnInit {
       });
   }
 
-  // Method to refresh comments (can be called from parent components)
   refreshComments(): void {
     this.isLoading = true;
     this.loadComments();

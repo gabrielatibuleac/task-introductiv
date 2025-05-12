@@ -188,7 +188,7 @@ export class CommentFormComponent {
   @Output() commentAdded = new EventEmitter<boolean>();
   
   newComment: Comment = {
-    userId: Math.floor(Math.random() * 10000), // Generate a random user ID
+    userId: Math.floor(Math.random() * 10000), 
     userName: '',
     content: '',
     itemId: ''
@@ -211,7 +211,6 @@ export class CommentFormComponent {
     this.submitError = false;
     this.submitSuccess = false;
     
-    // Ensure itemId is set
     this.newComment.itemId = this.itemId;
     
     this.commentService.addComment(this.newComment)
@@ -220,7 +219,6 @@ export class CommentFormComponent {
           this.isSubmitting = false;
           this.submitSuccess = true;
           
-          // Reset form
           this.newComment = {
             userId: Math.floor(Math.random() * 10000),
             userName: '',
@@ -228,10 +226,8 @@ export class CommentFormComponent {
             itemId: this.itemId
           };
           
-          // Notify parent that a comment was added
           this.commentAdded.emit(true);
           
-          // Hide success message after a few seconds
           setTimeout(() => {
             this.submitSuccess = false;
           }, 3000);

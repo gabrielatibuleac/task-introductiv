@@ -24,14 +24,12 @@ router.get('/item/:itemId', async (req, res) => {
     }
 });
 
-// Get a specific comment by ID
-router.get('/:id', async (req, res) => {
+// Get comments for a specific item
+router.get('/item/:itemId', async (req, res) => {
     try {
-        const comment = await Comment.findById(req.params.id);
-        if (!comment) {
-            return res.status(404).json({ message: 'Comment not found' });
-        }
-        res.json(comment);
+        const comments = await Comment.find({ itemId: req.params.itemId })
+                                    .sort({ createdAt: -1 }); 
+        res.json(comments);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
