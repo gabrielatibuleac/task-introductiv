@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Image } from '../../shared/models/image.model';
 import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate, state } from '@angular/animations';
+import { GalleryCommentsComponent } from '../gallery-comments/gallery-comments.component';
 
 @Component({
   selector: 'app-image-gallery',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, GalleryCommentsComponent],
   templateUrl: './image-gallery.component.html',
   styleUrls: ['./image-gallery.component.scss'],
   animations: [
@@ -48,16 +49,17 @@ export class ImageGalleryComponent implements OnInit {
     this.bobocImages = this.getBobocImages();
   }
 
-navigateToImageDetail(image: Image, event: Event): void {
-  event.stopPropagation();
+  navigateToImageDetail(image: Image, event: Event): void {
+    event.stopPropagation();
+    
+    // Determină ruta în funcție de colecție
+    const route = image.collection === 'mentori' 
+      ? `/mentori/${image._id}` 
+      : `/boboci/${image._id}`;
+    
+    this.router.navigate([route]);
+  }
   
-  // Determină ruta în funcție de colecție
-  const route = image.collection === 'mentori' 
-    ? `/mentori/${image._id}` 
-    : `/boboci/${image._id}`;
-  
-  this.router.navigate([route]);
-}
   setActiveMentorIndex(index: number): void {
     this.activeMentorIndex = index;
   }
@@ -71,7 +73,7 @@ navigateToImageDetail(image: Image, event: Event): void {
   }
   
   // Simplified mock data with 4 images each
-public getMentorImages(): Image[] {
+  public getMentorImages(): Image[] {
     return [
       {
         _id: 'n1',
@@ -105,7 +107,7 @@ public getMentorImages(): Image[] {
         description: 'Un PREMIAT...  ',
         order: 4
       },
-         {
+      {
         _id: 'n5',
         title: 'Casandra Irimia',
         imageUrl: 'assets/images/casandra-irimia.jpg',
@@ -113,7 +115,6 @@ public getMentorImages(): Image[] {
         description: 'O fire deschisă..  ',
         order: 5
       }
-      
     ];
   }
   
@@ -153,5 +154,4 @@ public getMentorImages(): Image[] {
       }
     ];
   }
-  
 }

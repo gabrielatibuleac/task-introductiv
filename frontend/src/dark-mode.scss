@@ -1,4 +1,4 @@
-/* Dark Mode Variables */
+
 :root {
     --background-color: #f5e8df;
     --text-color: #2c3e50;
@@ -13,11 +13,9 @@
     --badge-color: #3498db;
     --badge-text: white;
     
-    /* Transition for smooth dark mode toggle */
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  /* Dark Mode Class */
   .dark-mode {
     --background-color: #1e272e;
     --text-color: #f5f6fa;
@@ -32,13 +30,11 @@
     --badge-color: #0984e3;
     --badge-text: #f5f6fa;
     
-    /* Apply to body and base elements */
     body {
       background-color: var(--background-color);
       color: var(--text-color);
     }
     
-    /* Update gallery background */
     .gallery-container,
     .image-detail,
     .mentor-detail,
@@ -48,7 +44,6 @@
       background-color: var(--background-color);
     }
     
-    /* Update cards and containers */
     .profile-container,
     .detail-card,
     .carousel-card,
@@ -58,12 +53,10 @@
       color: var(--text-color);
     }
     
-    /* Update headings */
     h1, h2, h3, h4, h5, h6 {
       color: var(--text-color);
     }
     
-    /* Update buttons and links */
     .back-link,
     .explore-btn {
       background-color: transparent;
@@ -76,7 +69,6 @@
       }
     }
     
-    /* Update badges */
     .collection-badge {
       background-color: var(--badge-color);
       color: var(--badge-text);

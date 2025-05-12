@@ -1,64 +1,56 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Image } from '../../shared/models/image.model';
-import { RouterModule } from '@angular/router';
-import { trigger, transition, style, animate, state } from '@angular/animations';
-import { GalleryCommentsComponent } from '../../components/gallery-comments/gallery-comments.component';
+import { GalleryCommentsComponent } from '../gallery-comments/gallery-comments.component';
 
 @Component({
-  selector: 'app-image-gallery',
+  selector: 'app-image-detail',
   standalone: true,
   imports: [CommonModule, RouterModule, GalleryCommentsComponent],
-  templateUrl: './image-gallery.component.html',
-  styleUrls: ['./image-gallery.component.scss'],
-  animations: [
-    trigger('cardAnimation', [
-      state('active', style({
-        transform: 'scale(1) translateX(0)',
-        opacity: 1,
-        zIndex: 10
-      })),
-      state('inactive', style({
-        transform: 'scale(0.8) translateX(0)',
-        opacity: 0.6
-      })),
-      transition('inactive => active', [
-        animate('0.4s ease-in-out')
-      ]),
-      transition('active => inactive', [
-        animate('0.4s ease-in-out')
-      ])
-    ])
-  ]
+  templateUrl: './image-detail.component.html',
+  styleUrls: ['./image-detail.component.scss']
 })
-export class ImageGalleryComponent implements OnInit {
+export class ImageDetailComponent implements OnInit {
+  image: Image | null = null;
+  imageId: string | null = null;
+  
+  // Properties needed for the template
   mentorImages: Image[] = [];
   bobocImages: Image[] = [];
-  isLoading = false;
-  activeMentorIndex = 1; 
-  activeBobocIndex = 1; 
-
+  activeMentorIndex = 1;
+  activeBobocIndex = 1;
+  
   @ViewChild('mentorCarousel') mentorCarousel!: ElementRef;
   @ViewChild('bobocCarousel') bobocCarousel!: ElementRef;
 
-  constructor(private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.mentorImages = this.getMentorImages();
-    this.bobocImages = this.getBobocImages();
+    this.route.paramMap.subscribe(params => {
+      this.imageId = params.get('id');
+      console.log('Image ID:', this.imageId);
+      
+      // Initialize the image collections
+      this.mentorImages = this.getMentorImages();
+      this.bobocImages = this.getBobocImages();
+    });
   }
 
-navigateToImageDetail(image: Image, event: Event): void {
-  event.stopPropagation();
+  navigateToImageDetail(image: Image, event: Event): void {
+    event.stopPropagation();
+    
+    // Determine route based on collection
+    const route = image.collection === 'mentori' 
+      ? `/mentori/${image._id}` 
+      : `/boboci/${image._id}`;
+    
+    this.router.navigate([route]);
+  }
   
-  // Determină ruta în funcție de colecție
-  const route = image.collection === 'mentori' 
-    ? `/mentori/${image._id}` 
-    : `/boboci/${image._id}`;
-  
-  this.router.navigate([route]);
-}
   setActiveMentorIndex(index: number): void {
     this.activeMentorIndex = index;
   }
@@ -71,8 +63,8 @@ navigateToImageDetail(image: Image, event: Event): void {
     return index === activeIndex ? 'active' : 'inactive';
   }
   
-  // Simplified mock data with 4 images each
-public getMentorImages(): Image[] {
+  // Mock data for mentors
+  public getMentorImages(): Image[] {
     return [
       {
         _id: 'n1',
@@ -114,10 +106,10 @@ public getMentorImages(): Image[] {
         description: 'O fire deschisă..  ',
         order: 5
       }
-      
     ];
   }
   
+  // Mock data for boboci
   public getBobocImages(): Image[] {
     return [
       {
@@ -153,5 +145,9 @@ public getMentorImages(): Image[] {
         order: 4
       }
     ];
+  }
+  
+  goBack(): void {
+    this.router.navigate(['/gallery']);
   }
 }

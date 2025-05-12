@@ -1,14 +1,11 @@
-/* Additional Dark Mode styles to add to your styles.scss file */
 
-/* Make sure dark mode applies to all page elements */
 .dark-mode {
-  /* Target all root and body elements */
+
   html, body, app-root, .app-container {
     background-color: var(--background-color);
     color: var(--text-color);
   }
   
-  /* Target landing page specific elements */
   .landing-container {
     background-color: var(--background-color) !important;
   }
@@ -21,7 +18,6 @@
     background-clip: text !important;
   }
   
-  /* Target mentor/boboc detail pages */
   .mentor-detail, .not-found, app-mentor-detail:host, app-boboc-detail:host {
     background-color: var(--background-color) !important;
   }
@@ -30,7 +26,6 @@
     background-color: var(--card-background) !important;
   }
   
-  /* Target image gallery elements */
   .gallery-container {
     background-color: var(--background-color) !important;
   }
@@ -47,18 +42,16 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)) !important;
   }
   
-  /* Target navigation elements */
   .back-link, .explore-btn {
     color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
-    
-    &:hover {
-      background-color: var(--primary-color) !important;
-      color: var(--card-background) !important;
-    }
   }
   
-  /* Handle all other possible elements */
+  .back-link:hover, .explore-btn:hover {
+    background-color: var(--primary-color) !important;
+    color: var(--card-background) !important;
+  }
+  
   .detail-card {
     background-color: var(--card-background) !important;
   }
@@ -66,31 +59,24 @@
   h1, h2, h3, h4, h5, h6, p, span, div {
     color: var(--text-color);
   }
-  
-  /* Target any remaining content sections */
   .content, .details-section, .info, .header, .text-content {
     color: var(--text-color);
   }
   
-  /* Style for buttons and interactive elements */
   button:not(.dark-mode-toggle) {
     background-color: var(--primary-color);
     color: var(--card-background);
     border-color: var(--primary-color);
-    
-    &:hover {
-      background-color: var(--hover-color);
-    }
   }
   
-  /* Enforce dark mode for any embedded content */
+  button:not(.dark-mode-toggle):hover {
+    background-color: var(--hover-color);
+  }
   iframe, embed, object {
     filter: invert(0.8) hue-rotate(180deg);
   }
 }
 
-/* Add !important to all critical dark mode styles to ensure they override any component-specific styles */
-/* Comment-related styles */
 .comment-section {
   margin-top: 1rem;
   padding: 1rem 0;
@@ -138,7 +124,6 @@
   box-shadow: 0 0 0 3px rgba(116, 185, 255, 0.2);
 }
 
-/* Gallery comments styles */
 .dark-mode .gallery-comments-section {
   background-color: var(--background-color);
 }
@@ -164,8 +149,6 @@
 .dark-mode .comment-content p {
   color: var(--text-color);
 }
-
-/* Comment form error and success messages */
 .dark-mode .submit-error {
   background-color: rgba(231, 76, 60, 0.2);
   color: #ff7675;
@@ -180,7 +163,6 @@
   color: #ff7675;
 }
 
-/* Loading and no-comments states */
 .dark-mode .loading-comments,
 .dark-mode .no-comments {
   color: var(--border-color);

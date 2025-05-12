@@ -15,7 +15,6 @@ export class DarkModeToggleComponent implements OnInit {
   constructor(private darkModeService: DarkModeService) {}
 
   ngOnInit(): void {
-    // Subscribe to dark mode changes
     this.darkModeService.darkModeChange.subscribe(isDarkMode => {
       this.isDarkMode = isDarkMode;
     });

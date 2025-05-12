@@ -1,0 +1,1 @@
+export { ImageDetailComponent } from './image-detail.component';

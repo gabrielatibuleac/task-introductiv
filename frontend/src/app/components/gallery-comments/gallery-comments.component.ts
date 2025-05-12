@@ -182,7 +182,6 @@ export class GalleryCommentsComponent implements OnInit {
   comments: Comment[] = [];
   isLoading = true;
   
-  // Maps for storing mentor and boboc names
   private mentorNames: Record<string, string> = {};
   private bobocNames: Record<string, string> = {};
 
@@ -193,35 +192,29 @@ export class GalleryCommentsComponent implements OnInit {
     this.loadAllComments();
   }
   
-  // Set up maps for mentor and boboc names
   private setupNameMappings(): void {
-    // Mentors
     this.mentorNames['n1'] = 'Alexandru Ioan';
     this.mentorNames['n2'] = 'Alexandru Nechifor';
     this.mentorNames['n3'] = 'Alin Motricala';
     this.mentorNames['n4'] = 'Mihnea Pavel';
     this.mentorNames['n5'] = 'Casandra Irimia';
     
-    // Boboci
     this.bobocNames['u1'] = 'Andrei Moisa';
     this.bobocNames['u2'] = 'Diana Roșu';
     this.bobocNames['u3'] = 'Cătălin Rusu';
     this.bobocNames['u4'] = 'Gabriela Țibuleac';
   }
   
-  // Load all comments
   private loadAllComments(): void {
     this.commentService.getAllComments()
       .subscribe({
         next: (comments) => {
-          // Sort comments by date (newest first)
           comments.sort((a, b) => {
             const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
             const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
             return dateB - dateA;
           });
           
-          // Limit to 10 most recent comments
           this.comments = comments.slice(0, 10);
           this.isLoading = false;
         },
@@ -232,7 +225,6 @@ export class GalleryCommentsComponent implements OnInit {
       });
   }
   
-  // Get the name of the mentor or boboc associated with a comment
   getTargetName(itemId: string): string {
     if (this.mentorNames[itemId]) {
       return `${this.mentorNames[itemId]} (Mentor)`;

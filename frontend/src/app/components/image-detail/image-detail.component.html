@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="gallery-container">
   
     <a [routerLink]="['']" class="back-link">← Înapoi la pagina principală</a>
@@ -61,4 +62,25 @@
     
     <!-- Recent Comments Section -->
     <app-gallery-comments></app-gallery-comments>
+=======
+<div class="image-detail-container">
+    <a [routerLink]="['/gallery']" class="back-link">← Înapoi la galerie</a>
+    
+    <div class="image-detail-content" *ngIf="image">
+      <div class="image-container">
+        <img [src]="image.imageUrl" [alt]="image.title" class="detail-image">
+      </div>
+      
+      <div class="image-info">
+        <h1>{{ image.title }}</h1>
+        <p class="collection-badge">{{ image.collection }}</p>
+        <p class="description" *ngIf="image.description">{{ image.description }}</p>
+      </div>
+    </div>
+    
+    <div class="not-found" *ngIf="!image">
+      <h2>Imaginea nu a fost găsită</h2>
+      <p>Ne pare rău, dar imaginea pe care o căutați nu există în galeria noastră.</p>
+    </div>
+>>>>>>> a4e342e (dark mode + comentarii(incomplet pana cand, treb sa vad cum sa obtin comentariile din mongodb))
   </div>
