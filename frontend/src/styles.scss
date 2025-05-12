@@ -90,3 +90,98 @@
 }
 
 /* Add !important to all critical dark mode styles to ensure they override any component-specific styles */
+/* Comment-related styles */
+.comment-section {
+  margin-top: 1rem;
+  padding: 1rem 0;
+}
+
+.comment-form-container {
+  margin-bottom: 2rem;
+}
+
+.dark-mode .comment-form-container h3,
+.dark-mode .comments-container h3 {
+  color: var(--primary-color);
+}
+
+.dark-mode .comment-item {
+  background-color: var(--card-background);
+}
+
+.dark-mode .comment-author {
+  color: var(--primary-color);
+}
+
+.dark-mode .comment-content,
+.dark-mode .comment-content p {
+  color: var(--text-color);
+}
+
+.dark-mode .submit-btn {
+  background-color: var(--primary-color);
+  color: var(--card-background);
+}
+
+.dark-mode .submit-btn:hover:not(:disabled) {
+  background-color: var(--hover-color);
+}
+
+.dark-mode .form-control {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-mode .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(116, 185, 255, 0.2);
+}
+
+/* Gallery comments styles */
+.dark-mode .gallery-comments-section {
+  background-color: var(--background-color);
+}
+
+.dark-mode .gallery-comments-section .section-title {
+  color: var(--text-color);
+}
+
+.dark-mode .comment-card {
+  background-color: var(--card-background);
+  box-shadow: var(--card-shadow);
+}
+
+.dark-mode .comment-author {
+  color: var(--primary-color);
+}
+
+.dark-mode .comment-date,
+.dark-mode .comment-footer {
+  color: var(--border-color);
+}
+
+.dark-mode .comment-content p {
+  color: var(--text-color);
+}
+
+/* Comment form error and success messages */
+.dark-mode .submit-error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #ff7675;
+}
+
+.dark-mode .submit-success {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #55efc4;
+}
+
+.dark-mode .error-message {
+  color: #ff7675;
+}
+
+/* Loading and no-comments states */
+.dark-mode .loading-comments,
+.dark-mode .no-comments {
+  color: var(--border-color);
+}

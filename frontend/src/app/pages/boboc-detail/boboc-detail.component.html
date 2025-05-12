@@ -20,14 +20,23 @@
     
     <div class="content">
       <div class="details-section">
-        <h2>Informații suplimentare</h2>
+        <h2>Lasă un comentariu</h2>
         
         <div class="detail-card">
-          <div class="mentor-specific-info">
-            <h3>Anul de studiu</h3>
-            <p>Anul I, Facultatea de Informatică</p>
-            <button class="secret-button" (click)="triggerEasterEgg()">?</button>
+          <div class="comment-section">
+            <!-- Comment Form -->
+            <app-comment-form 
+              [itemId]="boboc._id!" 
+              (commentAdded)="onCommentAdded()">
+            </app-comment-form>
+            
+            <!-- Comment List -->
+            <app-comment-list 
+              [itemId]="boboc._id!"
+              #commentList>
+            </app-comment-list>
           </div>
+          <button class="secret-button" (click)="triggerEasterEgg()">?</button>
         </div>
       </div>
     </div>

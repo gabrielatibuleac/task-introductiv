@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Image } from '../../shared/models/image.model';
-
+import { CommentFormComponent } from '../../components/comment-form/comment-form.component';
+import { CommentListComponent } from '../../components/comment-list/comment-list.component';
 
 interface MentorImage extends Image {
   surpriseImageUrl?: string; 
@@ -12,7 +13,7 @@ interface MentorImage extends Image {
 @Component({
   selector: 'app-mentor-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, CommentFormComponent, CommentListComponent],
   templateUrl: './mentor-detail.component.html',
   styleUrls: ['./mentor-detail.component.scss']
 })
@@ -29,6 +30,7 @@ export class MentorDetailComponent implements OnInit {
   
   @ViewChild('profileImage') profileImage!: ElementRef<HTMLImageElement>;
   @ViewChild('confettiContainer') confettiContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('commentList') commentList!: CommentListComponent;
 
   mentorImages: MentorImage[] = [
     {
@@ -46,7 +48,7 @@ export class MentorDetailComponent implements OnInit {
       imageUrl: 'assets/images/alexandru-nechifor.jpg',
       collection: 'mentori',
       description:'👨‍💻 🕊️ 🤖\nUn bun lider, cu un simț al umorului inconfundabil și o prezență mereu energică. E sufletul petrecerilor, face haz de necaz și știe să aducă zâmbete în orice context. Îi place să îmbine distracția cu responsabilitatea, fiind un mentor dedicat și un prieten de nădejde.\nSpaima porumbeilor.',
-      order: 1,
+      order: 2,
       surpriseImageUrl: 'assets/images/cat-glass.jpg'
     },
     {
@@ -55,7 +57,7 @@ export class MentorDetailComponent implements OnInit {
       imageUrl: 'assets/images/alin-motricala.jpg',
       collection: 'mentori',
       description: '🖥️ 🔥 💥\nUn mentor, un prieten, un om deosebit mereu gata să te ajute să găsești soluții clare. Are răbdare și plăcerea sinceră de a-i ghida pe ceilalți. Cu el, orice problemă devine o lecție.',
-      order: 1,
+      order: 3,
       surpriseImageUrl: 'assets/images/cata.jpg'
     },
     {
@@ -64,7 +66,7 @@ export class MentorDetailComponent implements OnInit {
       imageUrl: 'assets/images/mihnea-pavel.jpg',
       collection: 'mentori',
       description: '🍾 🍾 🍾\nUn PREMIAT cumsecade. Știe să aprecieze un gust rafinat și să aducă eleganță în orice ocazie. Sponsorul bunului gust și al momentelor de relaxare.',
-      order: 1,
+      order: 4,
       surpriseImageUrl: 'assets/images/cat-bottle.jpg'
     },
     {
@@ -73,9 +75,9 @@ export class MentorDetailComponent implements OnInit {
       imageUrl: 'assets/images/casandra-irimia.jpg',
       collection: 'mentori',
       description: '🌸 🌼 🌷\nO fire deschisă, caldă și blândă, care inspiră încredere din primul contact. Îți vorbește cu sinceritate și îți ascultă cu răbdare gândurile. E genul de persoană cu care ai sta la povești ore în șir.',
-      order: 1,
+      order: 5,
       surpriseImageUrl: 'assets/images/catc.jpg'
-    },
+    }
   ];
 
   constructor(
@@ -114,6 +116,14 @@ export class MentorDetailComponent implements OnInit {
     setTimeout(() => {
       this.profileImage.nativeElement.classList.remove('animate-switch');
     }, 500);
+  }
+  
+  // Handle comment added event
+  onCommentAdded(): void {
+    // Refresh the comment list
+    if (this.commentList) {
+      this.commentList.refreshComments();
+    }
   }
   
   private createConfetti(): void {

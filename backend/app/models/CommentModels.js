@@ -1,7 +1,8 @@
+
 const mongoose = require('mongoose');
 
 const CommentSchema = new mongoose.Schema({
-    userId:{
+    userId: {
         type: Number,
         required: [true, 'Adauga id-ul utilizatorului']
     },
@@ -22,6 +23,11 @@ const CommentSchema = new mongoose.Schema({
         maxlength: [50, 'Numele utilizatorului nu poate depasi 50 de caractere'],
         minlength: [3, 'Numele utilizatorului trebuie sa aiba minim 3 caractere'],
         required: [true, 'Adauga numele utilizatorului']
+    },
+    
+    itemId: {
+        type: String,
+        required: [true, 'Adauga id-ul itemului']
     }
 });
 

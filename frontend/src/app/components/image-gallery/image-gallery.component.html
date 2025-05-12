@@ -1,61 +1,64 @@
 <div class="gallery-container">
   
-    <a [routerLink]="['']" class="back-link">← Înapoi la pagina principală</a>
-    <header>
-      <h1>Prezentarea grupei ASII</h1>
-      <p>O comunitate deosebită</p>
-    </header>
-    <div class="section-container">
-      <h2 class="section-title">Mentorii</h2>
-      
-      <div class="modern-carousel">
-        <div class="carousel-wrapper" #mentorCarousel>
-          <div *ngFor="let image of mentorImages; let i = index" 
-               class="carousel-card" 
-               [class.active]="i === activeMentorIndex"
-               (click)="setActiveMentorIndex(i)">
-            <img [src]="image.imageUrl" [alt]="image.title">
-            <div class="card-overlay">
-              <h3>{{ image.title }}</h3>
-              <p>{{ image.description }}</p>
-              <button class="view-details-btn" (click)="navigateToImageDetail(image, $event)">Vezi Detalii</button>
-            </div>
+  <a [routerLink]="['']" class="back-link">← Înapoi la pagina principală</a>
+  <header>
+    <h1>Prezentarea grupei ASII</h1>
+    <p>O comunitate deosebită</p>
+  </header>
+  <div class="section-container">
+    <h2 class="section-title">Mentorii</h2>
+    
+    <div class="modern-carousel">
+      <div class="carousel-wrapper" #mentorCarousel>
+        <div *ngFor="let image of mentorImages; let i = index" 
+             class="carousel-card" 
+             [class.active]="i === activeMentorIndex"
+             (click)="setActiveMentorIndex(i)">
+          <img [src]="image.imageUrl" [alt]="image.title">
+          <div class="card-overlay">
+            <h3>{{ image.title }}</h3>
+            <p>{{ image.description }}</p>
+            <button class="view-details-btn" (click)="navigateToImageDetail(image, $event)">Vezi Detalii</button>
           </div>
-        </div>
-        
-        <div class="carousel-controls">
-          <div *ngFor="let image of mentorImages; let i = index" 
-               class="control-dot" 
-               [class.active]="i === activeMentorIndex"
-               (click)="setActiveMentorIndex(i)"></div>
         </div>
       </div>
-    </div>
-  
-    <div class="section-container">
-      <h2 class="section-title">Bobocii</h2>
       
-      <div class="modern-carousel">
-        <div class="carousel-wrapper" #bobocCarousel>
-          <div *ngFor="let image of bobocImages; let i = index" 
-               class="carousel-card" 
-               [class.active]="i === activeBobocIndex"
-               (click)="setActiveBobocIndex(i)">
-            <img [src]="image.imageUrl" [alt]="image.title">
-            <div class="card-overlay">
-              <h3>{{ image.title }}</h3>
-              <p>{{ image.description }}</p>
-              <button class="view-details-btn" (click)="navigateToImageDetail(image, $event)">Vezi Detalii</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="carousel-controls">
-          <div *ngFor="let image of bobocImages; let i = index" 
-               class="control-dot" 
-               [class.active]="i === activeBobocIndex"
-               (click)="setActiveBobocIndex(i)"></div>
-        </div>
+      <div class="carousel-controls">
+        <div *ngFor="let image of mentorImages; let i = index" 
+             class="control-dot" 
+             [class.active]="i === activeMentorIndex"
+             (click)="setActiveMentorIndex(i)"></div>
       </div>
     </div>
   </div>
+
+  <div class="section-container">
+    <h2 class="section-title">Bobocii</h2>
+    
+    <div class="modern-carousel">
+      <div class="carousel-wrapper" #bobocCarousel>
+        <div *ngFor="let image of bobocImages; let i = index" 
+             class="carousel-card" 
+             [class.active]="i === activeBobocIndex"
+             (click)="setActiveBobocIndex(i)">
+          <img [src]="image.imageUrl" [alt]="image.title">
+          <div class="card-overlay">
+            <h3>{{ image.title }}</h3>
+            <p>{{ image.description }}</p>
+            <button class="view-details-btn" (click)="navigateToImageDetail(image, $event)">Vezi Detalii</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-controls">
+        <div *ngFor="let image of bobocImages; let i = index" 
+             class="control-dot" 
+             [class.active]="i === activeBobocIndex"
+             (click)="setActiveBobocIndex(i)"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Recent Comments Section -->
+  <app-gallery-comments></app-gallery-comments>
+</div>

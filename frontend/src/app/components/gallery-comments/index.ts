@@ -1,0 +1,1 @@
+export { GalleryCommentsComponent } from './gallery-comments.component';
