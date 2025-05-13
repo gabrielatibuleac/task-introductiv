@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Image } from '../../shared/models/image.model';
 import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { GalleryCommentsComponent } from '../gallery-comments/gallery-comments.component';
-
+import { Image } from '../../shared/models/image.model';
 @Component({
   selector: 'app-image-gallery',
   standalone: true,

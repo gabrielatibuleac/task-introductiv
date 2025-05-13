@@ -28,14 +28,13 @@
         color: #3498db;
         border: 2px solid #3498db;
         border-radius: 50px;
-        text-decoration: none;
         font-weight: 500;
         transition: all 0.3s ease;
         
         &:hover {
           color: #ffffff;
           background-color: #3498db;
-          text-decoration: underline;
+         
         }
       }
     }
@@ -203,7 +202,7 @@
 }
 
 :host-context(.dark-mode) {
-  background-color: #1e272e;
+  background-color: rgba(18,18,18,255);
   
   .mentor-detail {
     color: #f5f6fa;
@@ -289,4 +288,82 @@
       }
     }
   }
+}
+@media (min-width: 769px) and (max-width: 1440px) {
+  .landing-container {
+    padding: 1.5rem;
+    padding-top: 50px;
+  }
+
+  .hero-section {
+    min-height: 70vh;
+  }
+
+  .animated-title {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+  }
+
+  .explore-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .floating-orb {
+    width: 15px;
+    height: 15px;
+  }
+
+  .lego-animation {
+    width: 120px;
+  }
+}
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .landing-container {
+    padding: 2rem;
+    padding-top: 60px;
+  }
+
+  .hero-section {
+    min-height: 80vh;
+  }
+
+  .animated-title {
+    font-size: 3rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .explore-btn {
+    padding: 1rem 2.2rem;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+  }
+
+  .floating-orb {
+    width: 20px;
+    height: 20px;
+  }
+
+  .lego-animation {
+    width: 150px;
+  }
+}
+.collection-badge:hover {
+  transform: scale(1.05);
+}
+
+.heart-animation {
+  display: inline-block;
+  margin-left: 0.5rem;
+  animation: popUp 0.5s ease-out;
+  font-size: 1.5rem;
+}
+
+@keyframes popUp {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
